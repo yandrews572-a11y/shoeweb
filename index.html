@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOLEHUB — Premium Sneakers & Footwear</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" onclick="scrollToTop()">SOLEHUB</a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#products" class="nav-link" data-filter-cat="Men">Men</a>
+        <a href="#products" class="nav-link" data-filter-cat="Women">Women</a>
+        <a href="#products" class="nav-link" data-filter-cat="Kids">Kids</a>
+        <a href="#new-arrivals" class="nav-link">New Arrivals</a>
+        <a href="#products" class="nav-link" data-filter-sale="true">Sale</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="icon-btn" id="search-toggle" aria-label="Search">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button type="button" class="icon-btn" id="wishlist-toggle" aria-label="Wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge" id="wishlist-count">0</span>
+        </button>
+        <button type="button" class="icon-btn" id="cart-toggle" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge" id="cart-count">0</span>
+        </button>
+        <button type="button" class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="search-bar">
+      <div class="search-inner">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search-input" placeholder="Search shoes, brands, categories...">
+        <button type="button" class="search-close" id="search-close">&times;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#products" class="mobile-link" data-filter-cat="Men">Men</a>
+    <a href="#products" class="mobile-link" data-filter-cat="Women">Women</a>
+    <a href="#products" class="mobile-link" data-filter-cat="Kids">Kids</a>
+    <a href="#new-arrivals" class="mobile-link">New Arrivals</a>
+    <a href="#products" class="mobile-link" data-filter-sale="true">Sale</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">STEP INTO YOUR STYLE</h1>
+      <p class="hero-subtitle">Discover premium sneakers designed for your everyday movement.</p>
+      <div class="hero-buttons">
+        <button type="button" class="btn btn-primary" onclick="filterByGender('Men')">Shop Men</button>
+        <button type="button" class="btn btn-outline" onclick="filterByGender('Women')">Shop Women</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80" alt="Premium Sneaker" class="hero-shoe">
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="category-grid">
+        <div class="category-card" data-category="Running">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="Running">
+          <span>Running</span>
+        </div>
+        <div class="category-card" data-category="Sneakers">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="Sneakers">
+          <span>Sneakers</span>
+        </div>
+        <div class="category-card" data-category="Sports">
+          <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=400&q=80" alt="Sports">
+          <span>Sports</span>
+        </div>
+        <div class="category-card" data-category="Casual">
+          <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&q=80" alt="Casual">
+          <span>Casual</span>
+        </div>
+        <div class="category-card" data-category="Boots">
+          <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400&q=80" alt="Boots">
+          <span>Boots</span>
+        </div>
+        <div class="category-card" data-category="Sandals">
+          <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&q=80" alt="Sandals">
+          <span>Sandals</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="filters-row">
+          <div class="filter-group">
+            <label>Category</label>
+            <select id="filter-category" aria-label="Filter by category">
+              <option value="All">All</option>
+              <option value="Running">Running</option>
+              <option value="Sneakers">Sneakers</option>
+              <option value="Sports">Sports</option>
+              <option value="Casual">Casual</option>
+              <option value="Boots">Boots</option>
+              <option value="Sandals">Sandals</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Price</label>
+            <select id="filter-price" aria-label="Filter by price">
+              <option value="All">All</option>
+              <option value="under2000">Under ₹2,000</option>
+              <option value="2000-4000">₹2,000–₹4,000</option>
+              <option value="4000-6000">₹4,000–₹6,000</option>
+              <option value="above6000">Above ₹6,000</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Size</label>
+            <select id="filter-size" aria-label="Filter by size">
+              <option value="All">All</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Sort</label>
+            <select id="filter-sort" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Rating</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+      <p class="no-products" id="no-products" hidden>No products found.</p>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section class="new-arrivals" id="new-arrivals">
+    <div class="container">
+      <h2 class="section-title">New Arrivals</h2>
+      <div class="product-grid" id="new-arrivals-grid"></div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="best-sellers" id="best-sellers">
+    <div class="container">
+      <h2 class="section-title">Best Sellers</h2>
+      <div class="product-grid" id="best-sellers-grid"></div>
+    </div>
+  </section>
+
+  <!-- Discount Banner -->
+  <section class="discount-banner">
+    <div class="container">
+      <h2>UP TO 50% OFF</h2>
+      <p>On selected styles this season. Limited time only.</p>
+      <button type="button" class="btn btn-primary" onclick="document.getElementById('filter-category').value='All'; applyFilters(); document.getElementById('products').scrollIntoView({behavior:'smooth'});">SHOP SALE</button>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2>GET 10% OFF YOUR FIRST ORDER</h2>
+      <p>Subscribe to our newsletter and receive exclusive offers.</p>
+      <form id="newsletter-form" class="newsletter-form">
+        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="newsletter-error" id="newsletter-error"></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#products" data-filter-cat="Men">Men</a>
+          <a href="#products" data-filter-cat="Women">Women</a>
+          <a href="#products" data-filter-cat="Kids">Kids</a>
+          <a href="#new-arrivals">New Arrivals</a>
+          <a href="#products" data-filter-sale="true">Sale</a>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <a href="#">Contact Us</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+          <a href="#">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+            <a href="#" aria-label="YouTube">YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SOLEHUB. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quickview-modal">
+    <div class="modal modal-lg">
+      <button type="button" class="modal-close" id="quickview-close">&times;</button>
+      <div class="modal-body" id="quickview-content"></div>
+    </div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div class="sidebar-overlay" id="cart-overlay">
+    <div class="sidebar cart-sidebar" id="cart-sidebar">
+      <div class="sidebar-header">
+        <h3>Your Cart</h3>
+        <button type="button" class="modal-close" id="cart-close">&times;</button>
+      </div>
+      <div class="sidebar-body" id="cart-items"></div>
+      <div class="sidebar-footer" id="cart-summary"></div>
+    </div>
+  </div>
+
+  <!-- Wishlist Sidebar -->
+  <div class="sidebar-overlay" id="wishlist-overlay">
+    <div class="sidebar wishlist-sidebar" id="wishlist-sidebar">
+      <div class="sidebar-header">
+        <h3>Wishlist</h3>
+        <button type="button" class="modal-close" id="wishlist-close">&times;</button>
+      </div>
+      <div class="sidebar-body" id="wishlist-items"></div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal modal-md">
+      <button type="button" class="modal-close" id="checkout-close">&times;</button>
+      <div class="modal-body">
+        <h2 class="checkout-title">Checkout</h2>
+        <form id="checkout-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="full-name">Full Name *</label>
+              <input type="text" id="full-name" name="fullName" required>
+              <span class="error-msg" id="err-fullName"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+              <span class="error-msg" id="err-email"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required>
+              <span class="error-msg" id="err-phone"></span>
+            </div>
+            <div class="form-group">
+              <label for="pincode">Pincode *</label>
+              <input type="text" id="pincode" name="pincode" required>
+              <span class="error-msg" id="err-pincode"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Address *</label>
+            <textarea id="address" name="address" rows="2" required></textarea>
+            <span class="error-msg" id="err-address"></span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City *</label>
+              <input type="text" id="city" name="city" required>
+              <span class="error-msg" id="err-city"></span>
+            </div>
+            <div class="form-group">
+              <label for="state">State *</label>
+              <input type="text" id="state" name="state" required>
+              <span class="error-msg" id="err-state"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Payment Method *</label>
+            <div class="payment-options">
+              <label class="radio-label"><input type="radio" name="payment" value="cod" checked> Cash on Delivery</label>
+              <label class="radio-label"><input type="radio" name="payment" value="upi"> UPI</label>
+              <label class="radio-label"><input type="radio" name="payment" value="card"> Credit/Debit Card</label>
+            </div>
+            <span class="error-msg" id="err-payment"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+        </form>
+        <div id="order-success" class="order-success" hidden>
+          <div class="success-icon">🎉</div>
+          <h3>Order placed successfully!</h3>
+          <p>Your Order ID: <strong id="order-id"></strong></p>
+          <button type="button" class="btn btn-primary" onclick="closeCheckout()">Continue Shopping</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
