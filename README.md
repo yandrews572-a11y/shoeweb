@@ -1,1 +1,1 @@
-this is shoe selling website.
+this is just an sample shoes purchasing website
